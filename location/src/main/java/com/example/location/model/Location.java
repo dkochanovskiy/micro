@@ -19,10 +19,10 @@ public class Location {
     private String locationName;
 
     @NonNull
-    private String latitude;
+    private double latitude;
 
     @NonNull
-    private String longitude;
+    private double longitude;
 
     @NonNull
     private String country;
@@ -30,7 +30,7 @@ public class Location {
     @NonNull
     private String city;
 
-    public Location(@NonNull String locationName, @NonNull String latitude, @NonNull String longitude, @NonNull String country, @NonNull String city) {
+    public Location(@NonNull String locationName, @NonNull Double latitude, @NonNull Double longitude, @NonNull String country, @NonNull String city) {
         this.locationName = locationName;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -46,11 +46,11 @@ public class Location {
         return locationName;
     }
 
-    public String getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public String getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 

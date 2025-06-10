@@ -7,10 +7,9 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Weather {
+public class Wind {
 
-    private int id;
-    private String main;
-    private String description;
-    private String icon;
+    private double speed;
+    private int deg;
+    private double gust;
 }

@@ -7,10 +7,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Weather {
+public class Clouds {
 
-    private int id;
-    private String main;
-    private String description;
-    private String icon;
+    private int all;
 }
