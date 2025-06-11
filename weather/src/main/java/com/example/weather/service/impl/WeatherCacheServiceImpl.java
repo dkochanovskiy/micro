@@ -1,6 +1,5 @@
 package com.example.weather.service.impl;
 
-import com.example.weather.controller.WeatherController;
 import com.example.weather.model.Main;
 import com.example.weather.model.Root;
 import com.example.weather.service.WeatherCacheService;
