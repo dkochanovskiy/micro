@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class WeatherCacheServiceImpl implements WeatherCacheService {
 
-    private static final Logger LOG = LoggerFactory.getLogger(WeatherController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(WeatherCacheServiceImpl.class);
 
     @Autowired
     private RestTemplate restTemplate;

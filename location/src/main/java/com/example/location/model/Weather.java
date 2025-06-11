@@ -1,8 +1,8 @@
-package com.example.weather.model;
+package com.example.location.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Main {
+public class Weather {
 
     @JsonProperty("temp")
     private double temp;
@@ -26,11 +26,11 @@ public class Main {
     @JsonProperty("grnd_level")
     private int grndLevel;
 
-    public Main() {
+    public Weather() {
     }
 
-    public Main(double temp, double feelsLike, double tempMin, double tempMax, int pressure, int humidity, int seaLevel,
-                int grndLevel) {
+    public Weather(double temp, double feelsLike, double tempMin, double tempMax, int pressure, int humidity, int seaLevel,
+                   int grndLevel) {
         this.temp = temp;
         this.feelsLike = feelsLike;
         this.tempMin = tempMin;
