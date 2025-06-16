@@ -4,11 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
 public class Location {
     @Id
@@ -16,7 +14,7 @@ public class Location {
     private Integer id;
 
     @NonNull
-    private String locationName;
+    private String name;
 
     @NonNull
     private double latitude;
@@ -24,26 +22,21 @@ public class Location {
     @NonNull
     private double longitude;
 
-    @NonNull
-    private String country;
+    public Location() {
+    }
 
-    @NonNull
-    private String city;
-
-    public Location(@NonNull String locationName, @NonNull Double latitude, @NonNull Double longitude, @NonNull String country, @NonNull String city) {
-        this.locationName = locationName;
+    public Location(@NonNull String name, @NonNull Double latitude, @NonNull Double longitude) {
+        this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.country = country;
-        this.city = city;
     }
 
     public Integer getId() {
         return id;
     }
 
-    public String getLocationName() {
-        return locationName;
+    public String getName() {
+        return name;
     }
 
     public Double getLatitude() {
@@ -54,11 +47,15 @@ public class Location {
         return longitude;
     }
 
-    public String getCountry() {
-        return country;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCity() {
-        return city;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 }

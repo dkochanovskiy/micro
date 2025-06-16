@@ -38,7 +38,7 @@ public class AppConfiguration {
     public CacheManager cacheManager() {
         CaffeineCacheManager cacheManager = new CaffeineCacheManager("weathers");
         cacheManager.setCaffeine(Caffeine.newBuilder()
-                .expireAfterWrite(Duration.ofSeconds(10))
+                .expireAfterWrite(Duration.ofMinutes(10))
                 .scheduler(Scheduler.systemScheduler())
                 .maximumSize(100)
                 .recordStats());
