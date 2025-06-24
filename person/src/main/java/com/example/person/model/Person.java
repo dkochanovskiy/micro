@@ -3,24 +3,29 @@ package com.example.person.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 public class Person {
 
     @Id
     @GeneratedValue
     private Integer id;
 
-    @NonNull
     private String name;
 
-    @NonNull
     private String location;
+
+    private String firstname;
+    private String lastname;
+    private String surname;
+
+    public Person() {
+    }
+
+    public Person(String name, String location) {
+        this.name = name;
+        this.location = location;
+    }
 
     public Integer getId() {
         return id;
@@ -34,8 +39,35 @@ public class Person {
         return location;
     }
 
-    public Person(@NonNull String name, @NonNull String location) {
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public void setLocation(String location) {
         this.location = location;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 }

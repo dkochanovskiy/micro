@@ -1,12 +1,10 @@
 package com.example.weather.model;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import lombok.Getter;
 
 import java.util.ArrayList;
 
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-@Getter
 public class Root {
 
     private Coord coord;

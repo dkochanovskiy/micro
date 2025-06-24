@@ -1,10 +1,11 @@
-package com.example.weather.configuration;
+package com.example.weather.config;
 
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.github.benmanes.caffeine.cache.Scheduler;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -15,7 +16,7 @@ import java.time.Duration;
 import java.util.List;
 
 @Configuration
-public class AppConfiguration {
+public class WeatherConfig {
 
     @Bean
     public RestTemplate getRestTemplate() {

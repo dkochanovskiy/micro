@@ -1,22 +1,32 @@
 package com.example.weather.controller;
 
 import com.example.weather.model.Main;
-import com.example.weather.service.impl.WeatherCacheServiceImpl;
+import com.example.weather.model.Root;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.Objects;
 
 @RestController
 public class WeatherController {
 
     @Autowired
-    WeatherCacheServiceImpl weatherCacheServiceImpl;
+    private RestTemplate restTemplate;
+    @Value("${appid}")
+    private String appId;
+    @Value("${url.weather}")
+    private String urlWeather;
 
-    @GetMapping(value = "/weather", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping("/weather")
     public Main getWeather(@RequestParam String lat, @RequestParam String lon) {
 
-        return weatherCacheServiceImpl.getCachedWeather(lat, lon);
+        String request = String.format("%s?lat=%s&lon=%s&units=metric&appid=%s",
+                urlWeather, lat, lon, appId);
+
+        return Objects.requireNonNull(restTemplate.getForObject(request, Root.class)).getMain();
     }
 }

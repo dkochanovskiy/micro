@@ -3,25 +3,21 @@ package com.example.location.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import lombok.NonNull;
 
 @Entity
 public class Geodata {
-
-
     @Id
     @GeneratedValue
     private int id;
 
-    @NonNull
     private double longitude;
-    @NonNull private double latitude;
-    @NonNull private String name;
+    private double latitude;
+    private String name;
 
     public Geodata() {
     }
 
-    public Geodata(int id, @NonNull double longitude, @NonNull double latitude, @NonNull String name) {
+    public Geodata(int id, double longitude, double latitude, String name) {
         this.id = id;
         this.longitude = longitude;
         this.latitude = latitude;

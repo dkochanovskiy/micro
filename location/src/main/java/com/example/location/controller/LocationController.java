@@ -4,6 +4,8 @@ import com.example.location.model.Location;
 import com.example.location.model.Weather;
 import com.example.location.repository.LocationRepository;
 import jakarta.transaction.Transactional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -13,6 +15,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/location")
 public class LocationController {
+
+    private static final Logger LOG = LoggerFactory.getLogger(LocationController.class);
 
     @Autowired
     private LocationRepository locationRepository;
@@ -25,7 +29,9 @@ public class LocationController {
 
         Location location = getLocationByName(name);
 
-        String url = String.format("http://localhost:8082/weather?lat=%s&lon=%s", location.getLatitude(), location.getLongitude());
+        LOG.info(location.toString());
+
+        String url = String.format("http://weather-info-service/weather?lat=%s&lon=%s", location.getLatitude(), location.getLongitude());
 
         return restTemplate.getForObject(url, Weather.class);
     }

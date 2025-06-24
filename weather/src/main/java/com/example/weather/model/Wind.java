@@ -1,15 +1,28 @@
 package com.example.weather.model;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Wind {
 
     private double speed;
     private int deg;
     private double gust;
+
+    public Wind() {
+    }
+
+    public Wind(double speed, int deg, double gust) {
+        this.speed = speed;
+        this.deg = deg;
+        this.gust = gust;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public int getDeg() {
+        return deg;
+    }
+
+    public double getGust() {
+        return gust;
+    }
 }
